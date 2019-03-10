@@ -1,0 +1,140 @@
+h1, h2{
+    font-weight: normal;
+}
+
+#page-banner{
+    background: rgb(223, 211, 211) ;
+    padding: 10px 0;
+
+}
+
+#page-banner h1, #page-banner p{
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    position: centre;
+}
+
+#page-banner input{
+
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: black;
+    position: centre;
+}
+
+
+#add_book{
+    border: 1px solid rgb(226, 190, 190);
+    background: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    display: inline-block;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+    color: black;
+    height: 50px;
+    width:325px;
+}
+.book-class input{
+    float:left;
+  }
+.delete{
+    float: middle;
+    background: rgb(226, 190, 190);
+    padding: 14px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+}
+.edit{
+    float: middle;
+    background: rgb(226, 190, 190);
+    padding: 14px 35px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+}
+.logout{
+    color:black;
+    font-size: 15;
+    font-style: italic bold;
+}
+
+.delete:hover{
+    background: rgb(138, 115, 115)3;
+}
+
+#add-book{
+    background: rgb(226, 190, 190);
+    padding: 20px 20px;
+    font-size: 20px;
+    display:inline-block;
+    margin: 0;
+    border-radius:4px;
+    cursor: pointer;
+    margin: 20px 0;
+    border-left: 2px;
+    color: black;
+    height: 70px;
+    width:350px;
+    position: centre;
+    
+}
+
+#add-book:after{
+    content: ' ';
+    display: block;
+    clear: both;
+}
+body {
+    background-color:rgb(230, 212, 212);
+}
+header {
+    background-color:rgb(226, 190, 190);
+    color: white;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.table-users {
+    border: 1px solid rgb(226, 190, 190);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    word-wrap: break-word;
+    margin: 1em auto;
+    overflow: hidden;
+   
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+table td, table th {
+    color: rgb(31, 8, 8);
+    padding: 15px;
+}
+table td {
+    text-align: left;
+    vertical-align: middle;
+}
+table th {
+    font-size: 25px;
+    font-weight: 300;
+    height: 50px;
+    padding: 15px;
+    text-align: left;
+    vertical-align: left;
+}
+tr:nth-child(odd) {background-color: #dba6a6;}
+tr:nth-child(even) {background-color: #e2bebe;}

@@ -1,0 +1,41 @@
+doctype html
+head
+  meta(charset='utf-8')
+  link(rel='stylesheet' type="text/css" href='/bookdata.css')
+  title My Book Collections
+body
+    header
+    #page-banner
+        a(class='logout' href='/login') SignOut
+        h1.title My Read Books
+        p Books of #{username}
+        form#search-books
+        input(type='text' name='book_search' placeholder='Search books...')
+    .book-class
+    form(action='#', method='POST')
+        input(type='text' id ='add_book' name='book_name' placeholder='Book Name')
+        input(type='text' id ='add_book' name='book_author' placeholder='Author Name')
+        input(type='text' id ='add_book' name='book_rate' placeholder='Rating')
+        input(type='text' id ='add_book' name='book_review' placeholder='Book Review')
+        button(id='add-book') Add Book
+    table(cellspacing='1' id='t1')
+        thead
+            tr
+                th Name Of Book
+                th Author
+                th Rate
+                th Review
+                th Edit/Delete
+        tbody
+            each element in user
+                tr(id = 'tr1')
+                    td=element.book_name
+                    td=element.book_author
+                    td=element.book_rate
+                    td=element.book_review 
+                    td
+                        button.edit Edit
+                        button.delete  Delete
+            else
+                strong No Books Added!!
+    
