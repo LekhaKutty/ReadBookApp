@@ -1,0 +1,21 @@
+extends layout
+block content
+    #page-banner
+        a(class='logout' href='/login') SignOut
+        form(action='#',method='POST')
+            input(type='text' name='book_search' placeholder='Search books...')
+            button(id='search-book') Search Book
+    table(cellspacing='1',id='t1')
+        thead
+            tr
+                th Name Of Book
+                th Description
+                th Rating
+                th Link
+        tbody
+            each book in results
+                tr(id='tr1')
+                    td=book.title
+                    td=book.description
+                    td=book.averageRating
+                    td=book.link

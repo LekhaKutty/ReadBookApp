@@ -1,0 +1,37 @@
+#page-banner{
+    background: rgb(223, 211, 211) ;
+    padding: 10px 0;
+
+}
+
+#page-banner h1, #page-banner p{
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    position: centre;
+}
+
+#page-banner input,button{
+
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: black;
+    position: centre;
+}
+#search-book{
+    float: middle;
+    text-align: center;
+    background: rgb(226, 190, 190);
+    padding: 14px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    position: center;
+    
+}

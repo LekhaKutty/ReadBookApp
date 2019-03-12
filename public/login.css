@@ -17,25 +17,4 @@
     transition: all 0.5s ease-in-out;
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
-  }
-  
-  input.log:focus {
-    background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
-  }
-  
-  input.log:placeholder {
-    color: #cccccc;
-  }
-  
-  *:focus {
-      outline: none;
-  } 
-  
-  #icon {
-    width:60%;
-  }
-  p{
-    color: red;
-    font-style: italic;
-  }
+}

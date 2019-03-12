@@ -2,15 +2,16 @@ doctype html
 head
   meta(charset='utf-8')
   link(rel='stylesheet' type="text/css" href='/bookdata.css')
+  
   title My Book Collections
 body
     header
     #page-banner
         a(class='logout' href='/login') SignOut
+        a(class='booksearch' href='/MyBookSearch') Google Book Search
         h1.title My Read Books
         p Books of #{username}
-        form#search-books
-        input(type='text' name='book_search' placeholder='Search books...')
+        
     .book-class
     form(action='#', method='POST')
         input(type='text' id ='add_book' name='book_name' placeholder='Book Name')
@@ -34,8 +35,8 @@ body
                     td=element.book_rate
                     td=element.book_review 
                     td
-                        button.edit Edit
-                        button.delete  Delete
+                        //-button.edit Edit
+                        //-button.delete  Delete
             else
                 strong No Books Added!!
     

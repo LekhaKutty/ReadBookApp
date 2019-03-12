@@ -15,7 +15,7 @@ h1, h2{
     position: centre;
 }
 
-#page-banner input{
+#page-banner input,button{
 
     width: 90%;
     max-width: 300px;
@@ -28,8 +28,17 @@ h1, h2{
     color: black;
     position: centre;
 }
-
-
+#search-book{
+    float: middle;
+    text-align: center;
+    background: rgb(226, 190, 190);
+    padding: 14px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    position: center;
+    
+}
 #add_book{
     border: 1px solid rgb(226, 190, 190);
     background: white;
@@ -61,11 +70,20 @@ h1, h2{
     cursor: pointer;
     color: black;
 }
-.logout{
-    color:black;
-    font-size: 15;
-    font-style: italic bold;
-}
+a:link, a:visited {
+    background-color: rgb(226, 190, 190);
+    color: black;
+    border-style: solid;
+    border-color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: rgb(138, 115, 115)3;
+  }
 
 .delete:hover{
     background: rgb(138, 115, 115)3;

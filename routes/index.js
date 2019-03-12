@@ -5,6 +5,15 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({extended:true}));
 const RegisterData = require('../models/register_data');
 const ReadBookData = require('../models/read_book_data');
+const booksearch = require('google-books-search');
+//const bookapi = google.b
+/*booksearch.search('Harry Potter', function(error, results) {
+    if ( ! error ) {
+        console.log(results);
+    } else {
+        console.log(error);
+    }
+});*/
 
 //Register form Get
 router.get('/register', (req, res,next) => {
@@ -50,7 +59,7 @@ router.post('/register',[
             });
             console.log(err);
             res.render('regi', {
-                title:'Registration form',err           
+                title:'Registration form',err
             });
             }
         }
@@ -75,8 +84,16 @@ router.post('/login',function(req,res,next) {
             return res.render('login', {err});
         }else{
             user.comparePassword(password, (err, ismatch) => {
-                var id = name;
-                return res.redirect('/MyBook/'+id);
+                if(ismatch){
+                    var id = name;
+                    return res.redirect('/MyBook/'+id);
+                }
+                else{
+                    err = 'Incorrect username or password';
+                    return res.render('login', {err});
+
+                }
+                
             }) 
         }
         
@@ -96,12 +113,37 @@ router.get('/MyBook/:name',(req,res,next) => {
             return res.status(404).send();
         }else{
             res.render('BookData',{user,username});
-           
+                      
         }
     })
 });
+router.get('/MyBookSearch',(req,res)=>{
+    var results = [];
+    res.render('searchbook',{title:'Search Book',results});
+});
+router.post('/MyBookSearch',(req,res)=>{
+    var searchbook = req.body.book_search;
+    booksearch.search(searchbook, function(error, results) {
+        if ( ! error ) {
+            results.forEach(function(book){
+                console.log(book.title);
+                console.log(book.authors);
+                console.log(book.description);
+                console.log(book.averageRating);
+                // console.log(book.language);
+                console.log(book.link);
+                //console.log(book.images);
+                res.render('searchbook',{title:'Search Book',results});
+            })
+        } else {
+            console.log(error);
+        }
+    });
+       
+});
+
 router.post('/MyBook/:name',(req,res,next)=>{
-    var id = req.params.name;
+     var id = req.params.name;
     const newBookData = new ReadBookData();
     newBookData.user_name = req.params.name;
     newBookData.book_name = req.body.book_name;

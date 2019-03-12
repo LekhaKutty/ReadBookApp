@@ -1,29 +1,7 @@
-html {
-  background-color: #bbcedf;
-}
-
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
 }
-
-a {
-  color: #92badd;
-  display:inline-block;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-h2 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display:inline-block;
-  margin: 40px 8px 10px 8px; 
-  color: #cccccc;
-}
-
 #headh1 {
   margin: 1em 0 0.5em 0;
   color: #522121;
@@ -36,11 +14,7 @@ h2 {
   text-shadow: 0 2px white, 0 3px #777;
   text-align: center;  
 }
-
-
-
 /* STRUCTURE */
-
 .wrapper {
   display: flex;
   align-items: center;
@@ -50,7 +24,6 @@ h2 {
   min-height: 100%;
   padding: 20px;
 }
-
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
@@ -64,18 +37,6 @@ h2 {
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
 }
-
-#formFooter {
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 25px;
-  text-align: center;
-  -webkit-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
-}
-
-
-
 /* TABS */
 
 h2.inactive {
@@ -84,15 +45,11 @@ h2.inactive {
 
 h2.active {
   color: #0d0d0d;
-  border-bottom: 2px solid #5fbae9;
+  border-bottom: 2px solid rgb(226, 190, 190);;
 }
-
-
-
 /* FORM TYPOGRAPHY*/
-
 input[type=button], input[type=submit], input[type=reset]  {
-  background-color: #56baed;
+  background-color: rgb(226, 190, 190);;
   border: none;
   color: white;
   padding: 15px 80px;
@@ -101,8 +58,8 @@ input[type=button], input[type=submit], input[type=reset]  {
   display: inline-block;
   text-transform: uppercase;
   font-size: 13px;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-box-shadow: 0 10px 30px 0 rgb(204, 146, 146);
+  box-shadow: 0 10px 30px 0 rgb(204, 146, 146);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 40px 20px;
@@ -114,7 +71,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #39ace7;
+  background-color: rgb(204, 146, 146);
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -148,7 +105,7 @@ input[id = inp] {
 
 input[id = inp]:focus {
   background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
+  border-bottom: 2px solid rgb(204, 146, 146);
 }
 
 input[id = inp]:placeholder {
@@ -163,64 +120,24 @@ input[id = inp]:placeholder {
   width:60%;
 }
 
-/*body {
-  padding: 40px 10px;
-  background-color: #eee;
-}
-.listing-reg h1 {
+a{
+  background-color: rgb(226, 190, 190);;
+  border: none;
+  color: white;
+  padding: 15px 80px;
   text-align: center;
-  margin: 0 0 2rem;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgb(204, 146, 146);
+  box-shadow: 0 10px 30px 0 rgb(204, 146, 146);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
-
-/* css for registration form and errors*/
-/*form-registration {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-}
-.form-registration {
-  display: flex;
-  flex-wrap: wrap;
-}
-.form-registration input {
-  width: 100%;
-  margin: 10px 0 10px;
-}
-.form-registration .btn {
-  flex: 1 0 100%;
-  align-content: center;
-}
-.my-errors {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-  color: #333;
-  font-size: 1.2rem;
-  display: table;
-}
-.my-errors li {
-  margin: 0 0 1rem;
-}
-.my-errors li:before {
-  content: "! Error : ";
-  color: #f00;
-  font-weight: bold;
-}
-
-/* Styles for listing table */
-/*.listing-table {
-  width: 100%;
-}
-.listing-table th,
-.listing-table td {
-  padding: 10px;
-  border-bottom: 1px solid #666;
-}
-.listing-table th {
-  background: #000;
-  color: #fff;
-}
-.listing-table td:first-child,
-.listing-table th:first-child {
-  border-right: 1px solid #666;
-}*/
