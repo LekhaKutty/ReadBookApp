@@ -105,6 +105,9 @@ router.get('/MyBook/:name',(req,res) => {
         if(!user){
             return res.status(404).send();
         }else{
+            if(!req.session.user){
+                return res.redirect('/login');
+            }
             res.render('BookData',{user,username});
                       
         }
