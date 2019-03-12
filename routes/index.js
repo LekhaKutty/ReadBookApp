@@ -6,14 +6,6 @@ router.use(bodyParser.urlencoded({extended:true}));
 const RegisterData = require('../models/register_data');
 const ReadBookData = require('../models/read_book_data');
 const booksearch = require('google-books-search');
-//const bookapi = google.b
-/*booksearch.search('Harry Potter', function(error, results) {
-    if ( ! error ) {
-        console.log(results);
-    } else {
-        console.log(error);
-    }
-});*/
 
 //Register form Get
 router.get('/register', (req, res,next) => {
@@ -65,11 +57,11 @@ router.post('/register',[
         }
     );
 //login form
-router.get('/login',(req,res,next) => {
+router.get('/login',(req,res) => {
     const empty_arr = [];
     res.render('login',{title: 'Log In',errors:empty_arr});
 });
-router.post('/login',function(req,res,next) {
+router.post('/login',function(req,res) {
     var name = req.body.name;
     var password = req.body.password;
 
@@ -86,6 +78,7 @@ router.post('/login',function(req,res,next) {
             user.comparePassword(password, (err, ismatch) => {
                 if(ismatch){
                     var id = name;
+                    req.session.user = user;
                     return res.redirect('/MyBook/'+id);
                 }
                 else{
@@ -101,7 +94,7 @@ router.post('/login',function(req,res,next) {
     })
 });
 //Read Book Store
-router.get('/MyBook/:name',(req,res,next) => {
+router.get('/MyBook/:name',(req,res) => {
     const empty_arr = [];
     username = req.params.name;
     ReadBookData.find({user_name:username},function(err,user){
@@ -142,7 +135,7 @@ router.post('/MyBookSearch',(req,res)=>{
        
 });
 
-router.post('/MyBook/:name',(req,res,next)=>{
+router.post('/MyBook/:name',(req,res)=>{
      var id = req.params.name;
     const newBookData = new ReadBookData();
     newBookData.user_name = req.params.name;

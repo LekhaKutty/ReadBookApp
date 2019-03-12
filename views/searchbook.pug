@@ -1,7 +1,7 @@
 extends layout
 block content
+    a(class='logout' href='/login') SignOut
     #page-banner
-        a(class='logout' href='/login') SignOut
         form(action='#',method='POST')
             input(type='text' name='book_search' placeholder='Search books...')
             button(id='search-book') Search Book

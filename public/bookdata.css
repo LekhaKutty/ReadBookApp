@@ -1,13 +1,6 @@
 h1, h2{
     font-weight: normal;
 }
-
-#page-banner{
-    background: rgb(223, 211, 211) ;
-    padding: 10px 0;
-
-}
-
 #page-banner h1, #page-banner p{
     width: 100%;
     text-align: center;
@@ -49,7 +42,7 @@ h1, h2{
     border-radius: 0 4px 4px 0;
     color: black;
     height: 50px;
-    width:325px;
+    width:215px;
 }
 .book-class input{
     float:left;
@@ -79,6 +72,7 @@ a:link, a:visited {
     text-align: center; 
     text-decoration: none;
     display: inline-block;
+   
   }
   
   a:hover, a:active {
@@ -101,7 +95,7 @@ a:link, a:visited {
     border-left: 2px;
     color: black;
     height: 70px;
-    width:350px;
+    width:250px;
     position: centre;
     
 }
