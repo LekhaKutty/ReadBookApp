@@ -113,31 +113,6 @@ router.get('/MyBook/:name',(req,res) => {
         }
     })
 });
-router.get('/MyBookSearch',(req,res)=>{
-    var results = [];
-    res.render('searchbook',{title:'Search Book',results});
-});
-router.post('/MyBookSearch',(req,res)=>{
-    var searchbook = req.body.book_search;
-    booksearch.search(searchbook, function(error, results) {
-        if ( ! error ) {
-            results.forEach(function(book){
-                console.log(book.title);
-                console.log(book.authors);
-                console.log(book.description);
-                console.log(book.averageRating);
-                // console.log(book.language);
-                console.log(book.link);
-                //console.log(book.images);
-                res.render('searchbook',{title:'Search Book',results});
-            })
-        } else {
-            console.log(error);
-        }
-    });
-       
-});
-
 router.post('/MyBook/:name',(req,res)=>{
      var id = req.params.name;
     const newBookData = new ReadBookData();
@@ -155,5 +130,19 @@ router.post('/MyBook/:name',(req,res)=>{
     })
                            
 });
-
+router.get('/MyBookSearch',(req,res)=>{
+    var results = [];
+    res.render('searchbook',{title:'Search Book',results});
+});
+router.post('/MyBookSearch',(req,res)=>{
+    var searchbook = req.body.book_search;
+    booksearch.search(searchbook, function(error, results) {
+        if ( ! error ) {       
+                res.render('searchbook',{results});
+        } else {
+            console.log(error);
+        }
+    });
+       
+});
 module.exports = router;
