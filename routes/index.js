@@ -6,12 +6,10 @@ router.use(bodyParser.urlencoded({extended:true}));
 const RegisterData = require('../models/register_data');
 const ReadBookData = require('../models/read_book_data');
 const booksearch = require('google-books-search');
-
 //Register form Get
 router.get('/register', (req, res,next) => {
     const empty_array = [];
-    res.render('regi', { title: 'Registration Form', 
-                         errors: empty_array});
+    res.render('regi', { title: 'Registration Form',errors: empty_array});
 });
 //Register form Post
 router.post('/register',[
@@ -32,11 +30,10 @@ router.post('/register',[
         }
     }),
     ],
-    (req,res,next)=>{
+    (req,res)=>{
         const errors = validationResult(req);
         var err = [];
         if(errors.isEmpty()){
-            console.log(req.body);
             const newUser = new RegisterData(req.body);
             newUser.save()
               .then(()=>{res.redirect('/login');});
@@ -47,7 +44,6 @@ router.post('/register',[
             manyerrors.forEach(error => {
                 console.log(error.msg);
                 err[i++] = error.msg;
-
             });
             console.log(err);
             res.render('regi', {
@@ -55,7 +51,7 @@ router.post('/register',[
             });
             }
         }
-    );
+);
 //login form
 router.get('/login',(req,res) => {
     const empty_arr = [];
@@ -84,18 +80,13 @@ router.post('/login',function(req,res) {
                 else{
                     err = 'Incorrect username or password';
                     return res.render('login', {err});
-
                 }
-                
             }) 
         }
-        
-
     })
 });
 //Read Book Store
 router.get('/MyBook/:name',(req,res) => {
-    const empty_arr = [];
     username = req.params.name;
     ReadBookData.find({user_name:username},function(err,user){
         if(err){
@@ -109,12 +100,11 @@ router.get('/MyBook/:name',(req,res) => {
                 return res.redirect('/login');
             }
             res.render('BookData',{user,username});
-                      
         }
     })
 });
 router.post('/MyBook/:name',(req,res)=>{
-     var id = req.params.name;
+    var id = req.params.name;
     const newBookData = new ReadBookData();
     newBookData.user_name = req.params.name;
     newBookData.book_name = req.body.book_name;
@@ -128,21 +118,33 @@ router.post('/MyBook/:name',(req,res)=>{
         }
         return res.redirect('/MyBook/'+id);
     })
-                           
 });
 router.get('/MyBookSearch',(req,res)=>{
     var results = [];
-    res.render('searchbook',{title:'Search Book',results});
+    if(req.session.user){
+        res.render('searchbook',{title:'Search Book',results});
+    }
+    else{
+        return res.redirect('/login');
+    }   
 });
 router.post('/MyBookSearch',(req,res)=>{
     var searchbook = req.body.book_search;
     booksearch.search(searchbook, function(error, results) {
-        if ( ! error ) {       
+        if ( ! error ) {
+            if(req.session.user){
                 res.render('searchbook',{results});
+            }
+            else{
+                return res.redirect('/login');
+            }
         } else {
             console.log(error);
         }
-    });
-       
+    });       
+});
+router.post('/addtobook',(req,res)=>{
+    console.log("Added");
+    res.redirect('/login');
 });
 module.exports = router;

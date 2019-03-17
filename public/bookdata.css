@@ -130,11 +130,12 @@ header {
 
 table {
     width: 100%;
-    table-layout: fixed;
+    table-layout:auto;
 }
 table td, table th {
     color: rgb(31, 8, 8);
     padding: 15px;
+    border: 1px solid white;
 }
 table td {
     text-align: left;

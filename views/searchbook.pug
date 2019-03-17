@@ -12,6 +12,7 @@ block content
                 th Description
                 th Rating
                 th Link
+                th Add Book
         tbody
             each book in results
                 tr(id='tr1')
@@ -19,3 +20,6 @@ block content
                     td=book.description
                     td=book.averageRating
                     td=book.link
+                    td
+                     form(action='/addtobook',method='POST')
+                            button(id='search-book') Add Book
